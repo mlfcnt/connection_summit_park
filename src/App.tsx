@@ -53,7 +53,12 @@ function App() {
               const cardIsCompleted = completedCards.some(
                 (x) => x.id === card.id
               );
-              if (cardIsCompleted || selectedCards.length === 4) return;
+              if (
+                cardIsCompleted ||
+                (selectedCards.length === 4 &&
+                  !selectedCards.some((x) => x.id === card.id))
+              )
+                return;
 
               const cardWasAlreadySelected = selectedCards.some(
                 (x) => x.id === card.id
